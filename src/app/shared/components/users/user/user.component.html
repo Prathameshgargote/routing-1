@@ -1,0 +1,33 @@
+<ng-container *ngIf="userInfo;else nouser">
+    <mat-card class="example-card">
+        <mat-card-title-group>
+          <mat-card-title>{{userInfo.UserName}}</mat-card-title>
+          <mat-card-subtitle>{{userInfo.UserPositon}}</mat-card-subtitle>
+          <img mat-card-sm-image src="https://static.vecteezy.com/system/resources/previews/008/442/086/non_2x/illustration-of-human-icon-user-symbol-icon-modern-design-on-blank-background-free-vector.jpg" >
+        </mat-card-title-group>
+        <mat-card-content>
+          <strong>{{userInfo.UserName}}</strong> ipsum dolor sit amet consectetur adipisicing elit. Atque, exercitationem minus mollitia odit quo ex blanditiis animi? Similique sequi debitis est harum culpa velit provident dicta ea laudantium necessitatibus. Animi.
+        </mat-card-content>
+      </mat-card>
+
+<hr> 
+
+<button
+routerLink="edit"
+[queryParamsHandling]="'preserve'"
+ class="btn btn-primary">edit</button>
+
+ <button
+ (click)="onremove()"
+ class="btn btn-danger ml-3">remove</button>
+</ng-container>
+
+<ng-template #nouser>
+<p class="alert alert-info"> no user found </p>
+</ng-template>
+
+<!-- <hr>
+
+ <button
+routerLink="/users/125"
+ class="btn btn-primary">load may</button> -->

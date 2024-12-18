@@ -1,0 +1,17 @@
+<h1 class="fairTitel">FAIRS</h1>
+
+
+<div class="row">
+    <div class="col-md-4 ">
+        <app-fair-card 
+        [selectedfairid]="selectedfairid"
+      (click)="selectedfairid=fair.fairId"
+        [fairObj]='fair'
+        *ngFor="let fair of fairArr"
+        class="faircard"
+        ></app-fair-card>
+    </div>
+    <div class="col-md-8">
+    <router-outlet></router-outlet>
+    </div>
+</div>

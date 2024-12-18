@@ -1,0 +1,42 @@
+
+
+<div class="col text-right">
+    <button 
+    routerLink="add"
+    class="btn btn-info">Add Product</button>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <ul class="list-group">
+            <li 
+            (click)="onselectprod(prod.id)"
+            [ngClass]="{
+                active:selectedId===prod.id
+            }"
+            [routerLink]="['/products',prod.id]"
+            [queryParams]="{pstatus:prod.pstatus}" 
+            *ngFor="let prod of productArr"
+            class="list-group-item">
+            <div class="d-flex justify-content-between">
+
+                <div>{{prod.name}}</div>
+
+                 <div [ngClass]="{
+                    'text-success': prod.pstatus==='Available',
+                    'text-warning': prod.pstatus==='Out of Stock',
+                    'text-danger': prod.pstatus==='Discontinued'
+                 }">{{prod.pstatus}}</div>
+
+                 </div>
+                
+                </li>
+
+            
+        </ul> 
+    </div>
+    <div class="col-md-8">
+        <router-outlet></router-outlet>
+
+    </div>
+</div>

@@ -1,0 +1,25 @@
+
+<form 
+[formGroup]="userForm"
+(ngSubmit)="onuserAdd()"
+> 
+    <div class="form-group">
+        <label for="userName"> User Name</label>
+        <input type="text"
+        formControlName="UserName"
+        class="form-control"
+        id="userName">
+    </div>
+
+    <div class="form-group">
+        <label for="userName"> User Name</label>
+      <select 
+      formControlName="UserPositon"
+      class="form-control">
+        <option value="admin">admin</option>
+        <option value="candidate">candidate</option>
+      </select>
+    </div>
+    <button *ngIf="!Iseditmode" type="submit" class="btn btn-info btn-block">Add user</button>
+    <button *ngIf="Iseditmode" [disabled]="updatebtnflag" type="button" (click)="onupdate()" class="btn btn-info btn-block">update user</button>
+</form>

@@ -1,0 +1,45 @@
+<!-- <p>users works!</p> -->
+
+<!-- {{UserArr|json}} -->
+
+<div class="row">
+    <div class=" col text-right">
+    <button
+    routerLink="add"
+     class="btn btn-primary ">Add User</button>
+    </div>
+</div>
+
+    <div class="row m-5">
+        <div class="col-md-4">
+           
+            <ul class="list-group">
+                <!-- <li class="list-group-item"
+                routerLink="/users/{{user.UserId}}"
+                *ngFor="let user of UserArr">
+                    {{user.UserName}} {{user.UserId}}
+                </li>  -->
+              
+              <li class="list-group-item"
+                
+                (click)="onuserclick(user)"
+                [ngClass]="{
+                    active:selectedid===user.UserId
+                }"
+                [routerLink]="['/users',user.UserId]"
+                [queryParams]="{UserPositon:user.UserPositon}"
+                *ngFor="let user of UserArr">
+                    {{user.UserName}}
+                </li>  
+            </ul>
+           
+           
+        </div>
+        <div class="col-md-8 ">
+
+     <router-outlet></router-outlet>
+        </div>
+    </div>
+ 
+
+   
